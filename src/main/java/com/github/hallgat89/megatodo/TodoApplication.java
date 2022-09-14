@@ -1,4 +1,4 @@
-package com.github.hallgat89;
+package com.github.hallgat89.megatodo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TodoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TodoApplication.class,args);
+        SpringApplication.run(TodoApplication.class, args);
     }
 
 }
