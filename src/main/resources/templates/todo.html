@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<html>
+
+<head>
+    <title>MegaTodo</title>
+</head>
+
+<body>
+<h1>Thymeleaf works.</h1>
+
+<p>TDO add form</p>
+
+<p><a href="/h2-console/">h2 console</a></p>
+
+<p>Todos:</p>
+<div id="todolist" th:each="todo:${todoList}">
+    <span th:text="${todo.id}"></span>
+    <span th:text="${todo.description}"></span>
+</div>
+
+</body>
+
+</html>

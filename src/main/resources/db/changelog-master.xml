@@ -10,14 +10,16 @@
 		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
     <changeSet id="202209141710" author="Adam Hallgat">
         <createTable tableName="todo">
-            <column name="id" type="bigint">
-                <constraints primaryKey="true" primaryKeyName="todo_pk" />
+            <column autoIncrement="true" name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="message" type="varchar(250)">
-                <constraints unique="true" />
+                <constraints nullable="false"/>
             </column>
         </createTable>
-        <addAutoIncrement tableName="todo" columnName="id" columnDataType="bigint" startWith="1" incrementBy="1" />
-        <createSequence sequenceName="hibernate_sequence" incrementBy="1" startValue="1" />
+
+        <addAutoIncrement columnDataType="bigint" columnName="id"
+                incrementBy="1" startWith="1" tableName="todo"/>
+
     </changeSet>
 </databaseChangeLog>
