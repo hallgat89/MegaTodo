@@ -8,11 +8,15 @@
 </head>
 
 <body>
-<h1>Thymeleaf works.</h1>
-
-<p>TDO add form</p>
+<h1>MegaTodo</h1>
 
 <p><a href="/h2-console/">h2 console</a></p>
+
+<form id="todoform" action="/new" method="post">
+    <p>Add a new memo:</p>
+    <span><input type="text" id="message" name="message"/></span>
+    <input type="submit" text="Add todo"/>
+</form>
 
 <p>Todos:</p>
 <div id="todolist" th:each="todo:${todoList}">

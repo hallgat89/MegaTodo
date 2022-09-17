@@ -1,15 +1,13 @@
 package com.github.hallgat89.megatodo.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "todo")
 public class TodoEntity {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     Long id;
     @Column(name = "message")
     String description;
