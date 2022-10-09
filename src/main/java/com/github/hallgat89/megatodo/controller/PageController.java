@@ -4,10 +4,10 @@ import com.github.hallgat89.megatodo.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.WebRequest;
 
 @Controller
 public class PageController {
@@ -32,8 +32,16 @@ public class PageController {
 
     @PostMapping("/new")
     public String newTodo(Model model, @RequestParam("message") String message) {
-        model.addAttribute("todoList", service.getAllTodos());
         service.addNew(message);
+        model.addAttribute("todoList", service.getAllTodos());
+        return "todo";
+    }
+
+    // TODO resolve this later, delete action somehow torns into GET which causes exception
+    @PostMapping("/delete")
+    public String newTodo(Model model, @RequestParam("id") Long id) {
+        service.delete(id);
+        model.addAttribute("todoList", service.getAllTodos());
         return "todo";
     }
 

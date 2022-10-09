@@ -7,10 +7,15 @@ import javax.persistence.*;
 public class TodoEntity {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @Column(name = "message")
     String description;
+
+    public TodoEntity(){}
+    public TodoEntity(String description) {
+        this.description = description;
+    }
 
     public Long getId() {
         return id;

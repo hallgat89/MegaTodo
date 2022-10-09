@@ -1,5 +1,6 @@
 package com.github.hallgat89.megatodo.service;
 
+import com.github.hallgat89.megatodo.domain.TodoEntity;
 import com.github.hallgat89.megatodo.repositories.TodoRepository;
 import com.github.hallgat89.megatodo.view.TodoView;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +24,13 @@ public class TodoService {
     }
 
     public void addNew(String message) {
-        // TODO actually save
-        System.out.println(message);
+        if (message.length() > 0) {
+            repository.save(new TodoEntity(message));
+        }
+    }
+
+    public void delete(Long id) {
+        repository.deleteById(id);
     }
 
 }

@@ -10,4 +10,6 @@ import java.util.List;
 public interface TodoRepository extends JpaRepository<TodoEntity,Long> {
 
     List<TodoEntity> findAll();
+
+    void deleteById(Long id);
 }

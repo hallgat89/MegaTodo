@@ -22,6 +22,10 @@
 <div id="todolist" th:each="todo:${todoList}">
     <span th:text="${todo.id}"></span>
     <span th:text="${todo.description}"></span>
+    <form th:id="list+${todo.id}" action="/delete" method="post">
+        <input type="hidden" name="id" th:value="${todo.id}"/>
+        <input type="submit" th:id="delete_button+${todo.id}" text="Delete"/>
+    </form>
 </div>
 
 </body>
