@@ -15,17 +15,19 @@
 <form id="todoform" action="/new" method="post">
     <p>Add a new memo:</p>
     <span><input type="text" id="message" name="message"/></span>
-    <input type="submit" text="Add todo"/>
+    <input type="submit" id="submitTodo" text="Add todo" value="Submit"/>
 </form>
 
 <p>Todos:</p>
-<div id="todolist" th:each="todo:${todoList}">
-    <span th:text="${todo.id}"></span>
-    <span th:text="${todo.description}"></span>
+<div id="todolist">
+<div class="todoelement" th:each="todo:${todoList}">
+    <span class="todoId" th:text="${todo.id}"></span>
+    <span class="todoDescription" th:text="${todo.description}"></span>
     <form th:id="list+${todo.id}" action="/delete" method="post">
         <input type="hidden" name="id" th:value="${todo.id}"/>
-        <input type="submit" th:id="delete_button+${todo.id}" text="Delete"/>
+        <input type="submit" th:id="delete_button+${todo.id}" value="Delete"/>
     </form>
+</div>
 </div>
 
 </body>
