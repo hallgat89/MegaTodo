@@ -1,16 +1,13 @@
 package com.github.hallgat89.megatodo.view;
 
 import com.github.hallgat89.megatodo.domain.TodoEntity;
+import lombok.Getter;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
+@Getter
 public class TodoView {
 
-    public Long id;
-
-    public String description;
+    private Long id;
+    private String description;
 
     public TodoView(TodoEntity entity) {
         this.id = entity.getId();

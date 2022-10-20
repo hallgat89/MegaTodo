@@ -1,9 +1,14 @@
 package com.github.hallgat89.megatodo.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "todo")
+@Getter
+@Setter
 public class TodoEntity {
     @Id
     @Column(name = "id")
@@ -17,19 +22,4 @@ public class TodoEntity {
         this.description = description;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }
