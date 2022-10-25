@@ -37,9 +37,9 @@ public class PageController {
         return "todo";
     }
 
-    // TODO resolve this later, delete action somehow torns into GET which causes exception
+    // note: We use POST because form doesn't support delete
     @PostMapping("/delete")
-    public String newTodo(Model model, @RequestParam("id") Long id) {
+    public String deleteTodo(Model model, @RequestParam("id") Long id) {
         service.delete(id);
         model.addAttribute("todoList", service.getAllTodos());
         return "todo";
