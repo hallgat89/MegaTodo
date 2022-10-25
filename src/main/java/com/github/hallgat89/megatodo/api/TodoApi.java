@@ -23,14 +23,18 @@ public class TodoApi {
         return service.getAllTodos();
     }
 
+    @GetMapping(APIROOT + "/get")
+    public TodoView getById(@RequestParam(value = "id", required = true) Long id) {
+        return service.getTodo(id);
+    }
 
     @PostMapping(APIROOT + "/new")
-    public void deleteTodo(@RequestParam("message") String message) {
-        service.addNew(message);
+    public Long deleteTodo(@RequestParam(value = "message", required = true) String message) {
+        return service.addNew(message);
     }
 
     @DeleteMapping(APIROOT + "/delete")
-    public void deleteTodo(@RequestParam("id") Long id) {
+    public void deleteTodo(@RequestParam(value = "id", required = true) Long id) {
         service.delete(id);
     }
 

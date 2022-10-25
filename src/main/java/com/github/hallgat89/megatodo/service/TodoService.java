@@ -19,14 +19,19 @@ public class TodoService {
         this.repository = repo;
     }
 
+    public TodoView getTodo(long id) {
+        return repository.findById(id).map(e->new TodoView(e)).get();
+    }
     public List<TodoView> getAllTodos() {
         return repository.findAll().stream().map(e -> new TodoView(e)).collect(Collectors.toList());
     }
 
-    public void addNew(String message) {
-        if (message.length() > 0) {
-            repository.save(new TodoEntity(message));
+    public Long addNew(String message) {
+        if (message != null && message.length() > 0) {
+            TodoEntity saved = repository.save(new TodoEntity(message));
+            return saved.getId();
         }
+        throw new IllegalArgumentException("Message cannot be null or empty!");
     }
 
     public void delete(Long id) {
