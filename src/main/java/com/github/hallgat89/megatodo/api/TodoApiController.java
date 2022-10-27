@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class TodoApi {
+public class TodoApiController {
 
     public static final String APIROOT = "/api";
     TodoService service;
 
     @Autowired
-    public TodoApi(TodoService service) {
+    public TodoApiController(TodoService service) {
         this.service = service;
     }
 
@@ -29,7 +29,7 @@ public class TodoApi {
     }
 
     @PostMapping(APIROOT + "/new")
-    public Long deleteTodo(@RequestParam(value = "message", required = true) String message) {
+    public Long createTodo(@RequestParam(value = "message", required = true) String message) {
         return service.addNew(message);
     }
 

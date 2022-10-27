@@ -1,5 +1,6 @@
 package com.github.hallgat89.megatodo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "todo")
 @Getter
 @Setter
+@AllArgsConstructor
 public class TodoEntity {
     @Id
     @Column(name = "id")

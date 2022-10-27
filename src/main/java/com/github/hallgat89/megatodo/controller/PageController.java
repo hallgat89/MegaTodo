@@ -32,7 +32,9 @@ public class PageController {
 
     @PostMapping("/new")
     public String newTodo(Model model, @RequestParam("message") String message) {
-        service.addNew(message);
+        if (message.length() > 0) {
+            service.addNew(message);
+        }
         model.addAttribute("todoList", service.getAllTodos());
         return "todo";
     }
