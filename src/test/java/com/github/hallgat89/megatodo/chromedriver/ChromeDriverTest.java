@@ -15,6 +15,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+// note: Start the application before running this test!
+
 @SpringBootTest
 @Import(SpringTestConfig.class)
 public class ChromeDriverTest {

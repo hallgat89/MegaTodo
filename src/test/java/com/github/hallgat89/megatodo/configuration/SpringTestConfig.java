@@ -13,8 +13,9 @@ public class SpringTestConfig {
     @Bean
     public WebDriver webDriver() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        return new ChromeDriver(options);
     }
-
 
 }
