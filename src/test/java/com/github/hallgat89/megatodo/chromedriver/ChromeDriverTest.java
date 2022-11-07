@@ -1,8 +1,8 @@
 package com.github.hallgat89.megatodo.chromedriver;
 
-import com.github.hallgat89.megatodo.chromedriver.pages.TodoElement;
 import com.github.hallgat89.megatodo.chromedriver.pages.TodoPage;
 import com.github.hallgat89.megatodo.configuration.SpringTestConfig;
+import com.github.hallgat89.megatodo.view.TodoView;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +41,7 @@ public class ChromeDriverTest {
         final String todoMessage = "This is a test todo: " + LocalTime.now().toString();
         page.addTodo(todoMessage);
 
-        Optional<TodoElement> myTodo = page.getTodoElements().stream().filter(e -> e.getDescription().equals(todoMessage)).findFirst();
+        Optional<TodoView> myTodo = page.getTodoElements().stream().filter(e -> e.getDescription().equals(todoMessage)).findFirst();
         assertTrue(myTodo.isPresent(), "The new message is NOT present!");
 
         page.deleteTodo(myTodo.get().getId());

@@ -1,5 +1,6 @@
 package com.github.hallgat89.megatodo.chromedriver.pages;
 
+import com.github.hallgat89.megatodo.view.TodoView;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,13 +42,13 @@ public class TodoPage {
         driver.findElement(By.xpath(String.format(todoElementById, id))).findElement(todoDeleteButton).click();
     }
 
-    public List<TodoElement> getTodoElements() {
-        ArrayList<TodoElement> descriptions = new ArrayList<>();
+    public List<TodoView> getTodoElements() {
+        ArrayList<TodoView> descriptions = new ArrayList<>();
         List<WebElement> elems = driver.findElements(todoElements);
         for (WebElement e : elems) {
             Long id = Long.valueOf(e.findElement(elementId).getText());
             String descr = e.findElement(elementDescription).getText();
-            descriptions.add(new TodoElement(id, descr));
+            descriptions.add(new TodoView(id, descr));
         }
         return descriptions;
     }
